@@ -1,0 +1,148 @@
+{
+	"name": "virtual-comments",
+	"displayName": "Virtual Comments",
+	"publisher": "virtual-comments",
+	"description": "Virtual Comments",
+	"icon": "resources/logo.png",
+	"version": "0.0.3",
+	"private": true,
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/drashti1712/virtual-comment-system"
+	},
+	"engines": {
+		"vscode": "^1.73.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"*"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "mywiki.addComment",
+				"title": "Add Comment",
+				"enablement": "!commentIsEmpty"
+			},
+			{
+				"command": "mywiki.addSnippet",
+				"title": "Add Snippet",
+				"enablement": "commentIsEmpty"
+			},
+			{
+				"command": "mywiki.editComment",
+				"title": "Edit"
+			},
+			{
+				"command": "mywiki.deleteComment",
+				"title": "Delete"
+			},
+			{
+				"command": "mywiki.saveComment",
+				"title": "Save"
+			},
+			{
+				"command": "mywiki.cancelsaveComment",
+				"title": "Cancel"
+			},
+			{
+				"command": "showCommentNotifications",
+				"title": "text"
+			},
+			{
+				"command": "mywiki.retrieveComments",
+				"title": "retrieve Comments"
+			}
+		],
+		"menus": {
+			"commandPalette": [
+				{
+					"command": "mywiki.addComment",
+					"when": "false"
+				},
+				{
+					"command": "mywiki.addSnippet",
+					"when": "false"
+				},
+				{
+					"command": "mywiki.editComment",
+					"when": "false"
+				},
+				{
+					"command": "mywiki.deleteComment",
+					"when": "false"
+				},
+				{
+					"command": "showCommentNotifications",
+					"when": "false"
+				}
+			],
+			"comments/commentThread/context": [
+				{
+					"command": "mywiki.addComment",
+					"group": "inline",
+					"when": "commentController == virtual-comment-system && commentThreadIsEmpty"
+				},
+				{
+					"command": "mywiki.addSnippet",
+					"group": "inline",
+					"when": "commentController == virtual-comment-system && commentThreadIsEmpty"
+				}
+			],
+			"comments/comment/title": [
+				{
+					"command": "mywiki.editComment",
+					"group": "group@1",
+					"when": "commentController == virtual-comment-system && comment != snippet"
+				}
+			],
+			"comments/comment/context": [
+				{
+					"command": "mywiki.cancelsaveComment",
+					"group": "inline@1",
+					"when": "commentController == virtual-comment-system"
+				},
+				{
+					"command": "mywiki.saveComment",
+					"group": "inline@2",
+					"when": "commentController == virtual-comment-system"
+				},
+				{
+					"command": "mywiki.deleteComment",
+					"group": "inline@2",
+					"when": "commentController == virtual-comment-system && !commentThreadIsEmpty"
+				}
+			]
+		},
+		"viewsContainers": {
+			"panel": [
+				{
+					"icon": "",
+					"id": "comments-panel",
+					"title": "Comment Panel"
+				}
+			]
+		},
+		"views": {
+			"comments-panel": []
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"lint": "eslint \"src/**/*.ts\""
+	},
+	"devDependencies": {
+		"@types/node": "^16.18.34",
+		"@types/vscode": "^1.73.0",
+		"@typescript-eslint/eslint-plugin": "^5.42.0",
+		"@typescript-eslint/parser": "^5.42.0",
+		"eslint": "^8.26.0",
+		"typescript": "^5.1.3"
+	}
+}
