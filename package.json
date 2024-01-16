@@ -6,7 +6,7 @@
 	"icon": "resources/logo.png",
 	"version": "0.0.3",
 	"private": true,
-	"license": "MIT",
+	"license": "Apache-2.0",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/drashti1712/virtual-comment-system"
@@ -24,29 +24,29 @@
 	"contributes": {
 		"commands": [
 			{
-				"command": "mywiki.addComment",
+				"command": "addComment",
 				"title": "Add Comment",
 				"enablement": "!commentIsEmpty"
 			},
 			{
-				"command": "mywiki.addSnippet",
+				"command": "addSnippet",
 				"title": "Add Snippet",
 				"enablement": "commentIsEmpty"
 			},
 			{
-				"command": "mywiki.editComment",
+				"command": "editComment",
 				"title": "Edit"
 			},
 			{
-				"command": "mywiki.deleteComment",
+				"command": "deleteComment",
 				"title": "Delete"
 			},
 			{
-				"command": "mywiki.saveComment",
+				"command": "saveComment",
 				"title": "Save"
 			},
 			{
-				"command": "mywiki.cancelsaveComment",
+				"command": "cancelsaveComment",
 				"title": "Cancel"
 			},
 			{
@@ -54,26 +54,26 @@
 				"title": "text"
 			},
 			{
-				"command": "mywiki.retrieveComments",
+				"command": "retrieveComments",
 				"title": "retrieve Comments"
 			}
 		],
 		"menus": {
 			"commandPalette": [
 				{
-					"command": "mywiki.addComment",
+					"command": "addComment",
 					"when": "false"
 				},
 				{
-					"command": "mywiki.addSnippet",
+					"command": "addSnippet",
 					"when": "false"
 				},
 				{
-					"command": "mywiki.editComment",
+					"command": "editComment",
 					"when": "false"
 				},
 				{
-					"command": "mywiki.deleteComment",
+					"command": "deleteComment",
 					"when": "false"
 				},
 				{
@@ -83,36 +83,36 @@
 			],
 			"comments/commentThread/context": [
 				{
-					"command": "mywiki.addComment",
+					"command": "addComment",
 					"group": "inline",
 					"when": "commentController == virtual-comment-system && commentThreadIsEmpty"
 				},
 				{
-					"command": "mywiki.addSnippet",
+					"command": "addSnippet",
 					"group": "inline",
 					"when": "commentController == virtual-comment-system && commentThreadIsEmpty"
 				}
 			],
 			"comments/comment/title": [
 				{
-					"command": "mywiki.editComment",
+					"command": "editComment",
 					"group": "group@1",
 					"when": "commentController == virtual-comment-system && comment != snippet"
 				}
 			],
 			"comments/comment/context": [
 				{
-					"command": "mywiki.cancelsaveComment",
+					"command": "cancelsaveComment",
 					"group": "inline@1",
 					"when": "commentController == virtual-comment-system"
 				},
 				{
-					"command": "mywiki.saveComment",
+					"command": "saveComment",
 					"group": "inline@2",
 					"when": "commentController == virtual-comment-system"
 				},
 				{
-					"command": "mywiki.deleteComment",
+					"command": "deleteComment",
 					"group": "inline@2",
 					"when": "commentController == virtual-comment-system && !commentThreadIsEmpty"
 				}

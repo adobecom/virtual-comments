@@ -1,6 +1,6 @@
 import * as vscode from 'vscode';
-import { config } from "../config";
-import { getWebViewContent } from './htmlContent';
+import { config } from "../config/config";
+import { getWebViewContent } from './webviewContent';
 import { keepComment, deleteComment, editComment } from './utils';
 
 let commentListPanel: vscode.WebviewPanel | undefined;

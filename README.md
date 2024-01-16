@@ -21,6 +21,12 @@ The Virtual Comments Extension for Visual Studio Code is a tool designed to help
 
 - **Dynamic line changing**: Virtual comments also offer a solution when the existing lines of code are moved, updated or deleted in the file.
 
+## Compile and run
+
+- npm install
+- npm run compile
+- Press fn + F5
+
 ---
 
 Thank you for using the Virtual Comments Extension! We hope it enhances your coding experience and makes your codebase more accessible to you and your team.

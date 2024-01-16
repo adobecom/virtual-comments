@@ -1,7 +1,7 @@
-import * as vscode from "vscode";
+import {window, workspace} from "vscode";
 
-const activeEditor = vscode.window.activeTextEditor;
-const folderName = vscode.workspace.workspaceFolders !== undefined? vscode.workspace.workspaceFolders[0].name : "";
+const activeEditor = window.activeTextEditor;
+const folderName = workspace.workspaceFolders !== undefined? workspace.workspaceFolders[0].name : "";
 const newVar = activeEditor ? activeEditor.document.fileName : "";
 const newStr = newVar.split(folderName).join(folderName + "/.docs");
 

@@ -1,7 +1,7 @@
 import * as vscode from 'vscode';
 import * as fs from 'fs';
-import { config, snippets } from "./config";
-import { isSnippet, extractFirstLine } from "./snippet";
+import { config } from "./config/config";
+import { isSnippet, extractFirstLine } from "./config/snippet";
 
 export class CodelensProvider implements vscode.CodeLensProvider {
 
@@ -67,7 +67,7 @@ export class CodelensProvider implements vscode.CodeLensProvider {
 				if (!this.lineChangeFlag && config.changedComments.length !== 0) {
 				this.statusBarItem.color = "red";
 				this.statusBarItem.text = "$(extensions-info-message) comments";
-				this.statusBarItem.command = "mywiki.showCommentNotifications";
+				this.statusBarItem.command = "showCommentNotifications";
 				this.statusBarItem.show();
 				} 
 				const commentText = value;
@@ -75,7 +75,7 @@ export class CodelensProvider implements vscode.CodeLensProvider {
 				if (!existingCodeLensRanges.some((existingRange) => existingRange.contains(range))) {
 				const command: vscode.Command = {
 					title: isSnippet(commentText) ? extractFirstLine(commentText) : commentText,
-					command: "mywiki.clickComment",
+					command: "clickComment",
 					tooltip: commentText.replace(/(?:\r\n|\r|\n)/g, "\n"),
 					arguments: [commentText, lineNumber],
 				};

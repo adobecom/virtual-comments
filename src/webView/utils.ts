@@ -1,7 +1,7 @@
 import * as vscode from 'vscode';
 import * as fs from "fs";
-import { config } from "../config";
-import { NewComment } from '../extension';
+import { config } from "../config/config";
+import NewComment from "../newComment";
 
 export function keepComment(commentText: string) {
 	// from comment text find line number

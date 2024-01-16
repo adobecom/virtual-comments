@@ -1,8 +1,8 @@
 import * as fs from "fs";
-import { config } from "./config";
-import { NewComment } from './extension';
+import { config } from "../config/config";
+import NewComment from "../newComment";
 
-export default function editComment(newComment: NewComment) {
+export default function edit(newComment: NewComment) {
   let existingData: any;
     //case: file already exists
     if (fs.existsSync(config.commentJSONPath)) {
